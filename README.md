@@ -1,2 +1,2 @@
-# pwa2-meerketgram
+# pwa2-meerkatgram
 My App Name junstagram

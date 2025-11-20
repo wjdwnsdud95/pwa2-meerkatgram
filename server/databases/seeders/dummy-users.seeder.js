@@ -3,6 +3,7 @@
  * @description users table dummy data create
  * 251118 v1.0.0 jun 생성
  */
+// 비밀번호 암호화 해주는 라이브러리
 import bcrypt from 'bcrypt';
 
 // 테이블명

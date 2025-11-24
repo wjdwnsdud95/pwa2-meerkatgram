@@ -95,6 +95,11 @@ const Comment = {
     const define = sequelize.define(modelName, attributes, options);
 
     return define;
-}}
+  },
+  associate: (db) => {
+    db.Comment.belongsTo(db.User, { targetKey: 'id', foreignKey: 'userId', as: 'author' });
+    db.Comment.belongsTo(db.Post, { targetKey: 'id', foreignKey: 'postId', as: 'post' });
+  },
+}
 
 export default Comment;

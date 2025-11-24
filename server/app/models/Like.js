@@ -83,6 +83,11 @@ const Like = {
     const define = sequelize.define(modelName, attributes, options);
 
     return define;
-}}
+  },
+    associate: (db) => {
+    db.Like.belongsTo(db.User, { sourceKey: 'id', foreignKey: 'userId', as: 'author' });
+    db.Like.belongsTo(db.Post, { sourceKey: 'id', foreignKey: 'postId', as: 'post' });
+  },
+}
 
 export default Like;

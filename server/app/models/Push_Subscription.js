@@ -84,6 +84,10 @@ const Push_Subscription = {
     const define = sequelize.define(modelName, attributes, options);
 
     return define;
-}}
+  },
+  associate: (db) => {
+    db.PushSubscription.belongsTo(db.User, { targetKey: 'id', foreignKey: 'userId', as: 'author' });
+  },
+}
 
 export default Push_Subscription;

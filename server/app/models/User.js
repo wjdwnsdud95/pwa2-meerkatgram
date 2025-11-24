@@ -128,7 +128,11 @@ const User = {
   },
   // 모델 다 만든 뒤 연결
   associate: (db) => {
-
+    db.User.hasMany(db.Post, { sourceKey: 'id', foreignKey: 'userId', as: 'posts' });
+    db.User.hasMany(db.Like, { sourceKey: 'id', foreignKey: 'userId', as: 'likes' });
+    db.User.hasMany(db.Comment, { sourceKey: 'id', foreignKey: 'userId', as: 'comments' });
+    db.User.hasMany(db.PushSubscription, { sourceKey: 'id', foreignKey: 'userId', as: 'pushSubscriptions' });
+    db.User.hasMany(db.Notification, { sourceKey: 'id', foreignKey: 'userId', as: 'notifications' });
   },
 }
 

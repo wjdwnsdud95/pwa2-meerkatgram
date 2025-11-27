@@ -3,10 +3,11 @@
  * @description Cookie 유틸리티
  * 251125 v1.0.0 jun 초기 생성
  */
-import dayjs from 'dayjs';
-// --------------------
+import dayjs from "dayjs";
+
+// ----------------
 // private
-// --------------------
+// ----------------
 /**
  * 
  * @param {import("express").Response} res 
@@ -21,7 +22,7 @@ function setCookie(res, cookieName, cookieValue, ttl, httpOnlyFlg = true, secure
     cookieName,
     cookieValue,
     {
-      expires: dayjs().add(ttl, 'millisecond').toDate(),
+      expires: dayjs().add(ttl, 'second').toDate(),
       httpOnly: httpOnlyFlg,
       secure: secureFlg,
       sameSite: 'none',
@@ -29,11 +30,11 @@ function setCookie(res, cookieName, cookieValue, ttl, httpOnlyFlg = true, secure
   );
 }
 
-// --------------------
+// ----------------
 // public
-// --------------------
+// ----------------
 /**
- * 쿠키의 리프래시 토큰 설정
+ * 쿠키에 리프래시 토큰 설정
  * @param {import("express").Response} res 
  * @param {string} refreshToken 
  */

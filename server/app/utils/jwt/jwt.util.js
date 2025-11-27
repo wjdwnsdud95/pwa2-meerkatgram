@@ -77,7 +77,7 @@ function getBearerToken(req) {
   if(!bearerToken) {
     throw myError('베어러 토큰 없음', UNAUTHORIZED_ERROR);
   }
-
+  
   // 베어러토큰 형식 검증
   const tokenParts = bearerToken.split(' ');
   if(tokenParts.length !== 2 || tokenParts[0] !== process.env.JWT_SCHEME) {

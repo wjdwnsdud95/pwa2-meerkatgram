@@ -19,9 +19,7 @@ async function findByEmail(t = null, email) {
     {
       where: {
         email: email
-      }
-    },
-    {
+      },
       transaction: t
     }
   );
@@ -33,7 +31,7 @@ async function findByEmail(t = null, email) {
  * @param {import("../models/index.js").User} user 
  * @returns 
  */
-async function save(t= null, user) {
+async function save(t = null, user) {
   return await user.save({ transaction: t });
 }
 

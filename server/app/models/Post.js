@@ -5,6 +5,7 @@
  */
 
 import { DataTypes } from 'sequelize';
+import dayjs from 'dayjs';
 
 // 테이블명
 const modelName = 'Post';

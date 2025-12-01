@@ -13,5 +13,6 @@ const authRouter = express.Router();
 
 // 혹시 모를 후속 동작 방지를 위해 return을 추가
 authRouter.post('/login', loginValidator, validationHandler, authController.login);
+authRouter.post('/reissue', authController.reissue);
 
 export default authRouter;

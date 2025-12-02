@@ -5,11 +5,18 @@ import { postIndexThunk } from '../../store/thunks/postIndexThunk.js';
 
 export default function PostIndex() {
   const dispatch = useDispatch();
-  const { list, page } = useSelector(state => state.postIndex);
+  const { list, page, isLasted } = useSelector(state => state.postIndex);
 
   useEffect(() => {
-    dispatch(postIndexThunk(page + 1));
+    // list에 아무것도 없으면 아래 처리, 있다면 아무 처리도 하지 않음
+    if(!list) {
+      dispatch(postIndexThunk(page + 1));
+    }
   }, []);
+
+  function nextPage() {
+    dispatch(postIndexThunk(page + 1));
+  }
 
   return (
     <>
@@ -21,7 +28,9 @@ export default function PostIndex() {
             })
           }
         </div>
-        <button type="button" className='btn-full-width bg-gray'>Show more posts from Kanna_Kamui</button>
+        {
+          !isLasted && <button type="button" className='btn-full-width bg-gray' onClick={nextPage}>Show more posts</button>
+        }
       </div>
     </>
   )

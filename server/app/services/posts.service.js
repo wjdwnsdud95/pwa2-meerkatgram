@@ -32,7 +32,7 @@ async function pagination(page) {
  * @returns {Promise<import("../models/Post.js").Post>}
  */
 async function show(id) {
-  return await postRepository.findByPk(null, id);
+  return await postRepository.findByPkWithComments(null, id);
 }
 
 /**

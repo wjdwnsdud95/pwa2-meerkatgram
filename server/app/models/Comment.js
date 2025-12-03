@@ -98,8 +98,9 @@ const Comment = {
     return define;
   },
   associate: (db) => {
-    db.Comment.belongsTo(db.User, { targetKey: 'id', foreignKey: 'userId', as: 'author' });
+    db.Comment.belongsTo(db.User, { targetKey: 'id', foreignKey: 'userId', as: 'author' }); // author: 이 명칭은 개발자들이 관습적으로 사용함
     db.Comment.belongsTo(db.Post, { targetKey: 'id', foreignKey: 'postId', as: 'post' });
+    db.Comment.hasMany(db.Comment, { sourceKey: 'id', foreignKey: 'replyId', as: 'replies' });
   },
 }
 
